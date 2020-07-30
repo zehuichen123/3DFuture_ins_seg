@@ -50,7 +50,7 @@ Then convert data from pkl to json format which is then zipped and used for subm
 ./tools/dist_test.sh furniture_config/pointrend/CONFIG_NAME.py work_dirs/CONFIG_NAME/epoch44.pth 8 --out out_pkl/CONFIG_NAME/segmentation_resutls.pkl
 # Note we train PointRend for 44 epoch and default pretrained weights of the last epoch are used for infer.
 ```
-This will generate a *segmentation_resutls.pkl* file under the folder *out_pkl/CONFIG_NAME*.
+Above scripts will generate a *segmentation_resutls.pkl* file under the folder *out_pkl/CONFIG_NAME*.
 
 ```python
 # Then, convert from pkl to json format
