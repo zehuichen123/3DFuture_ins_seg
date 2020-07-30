@@ -30,10 +30,14 @@ mmdet_furniture
 To train a PointRend model on the 3DFuture dataset, run:
 ```python
 # train with 8 gpus using one machine:
+./tools/dist_train.sh furniture_config/pointrend/CONFIG_NAME.py 8 
+
+# We list 5 config files with different training settings under folder furniture_config/pointrend, 
+# which are used for this competition. For instance, you can run like this:
 ./tools/dist_train.sh furniture_config/pointrend/pointrend_x101_64x4d_dcn_fpn_fp16_p2p6.py 8 
-# We also list another 4 config files under folder furniture_config/pointrend, which are used for this competition
 ```
-After training finished, the trained model and training log will be saved under the folder *work_dirs/*
+After training finished, the trained model and training log will be saved under the folder *work_dirs/CONFIG_NAME*
+
 ### Evaluation
 ## Performance
 ### Single Model
