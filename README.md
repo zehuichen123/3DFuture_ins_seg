@@ -48,7 +48,7 @@ Then convert data from pkl to json format which is then zipped and used for subm
 ```python
 # Firstly, evaluate on test set and generate infer results with pkl format:
 ./tools/dist_test.sh furniture_config/pointrend/CONFIG_NAME.py work_dirs/CONFIG_NAME/epoch44.pth 8 --out out_pkl/CONFIG_NAME/segmentation_resutls.pkl
-# Note we train PointRend for 44 epoch and default pretrained weights of the last epoch are used for infer.
+# Note we train PointRend for 44 epochs and defaultly pretrained weights of the last epoch are used for infer.
 ```
 Above scripts will generate a *segmentation_resutls.pkl* file under the folder *out_pkl/CONFIG_NAME*.
 
