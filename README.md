@@ -37,9 +37,29 @@ To train a PointRend model on the 3DFuture dataset, run:
 ./tools/dist_train.sh furniture_config/pointrend/pointrend_x101_64x4d_dcn_fpn_fp16_p2p6.py 8 
 ```
 After training finished, the trained model and training log will be saved under the folder *work_dirs/CONFIG_NAME*
+We provide five pretrained PointRend models which can be used for test generation. Download the pretrained weights from [here](),
+and put it under folder *work_dirs*.
 
 ### Evaluation
-We follow
+Two steps for generating final submission file format on test dataset.
+First generate infer results in the pkl format based on the trained model.
+Then convert data from pkl to json format which is then zipped and used for submit the test server. 
+
+```python
+# Firstly, evaluate on test set and generate infer results with pkl format:
+./tools/dist_test.sh furniture_config/pointrend/CONFIG_NAME.py work_dirs/CONFIG_NAME/epoch44.pth 8 --out out_pkl/CONFIG_NAME/segmentation_resutls.pkl
+# Note we train PointRend for 44 epochs and defaultly pretrained weights of the last epoch are used for infer.
+```
+Above scripts will generate a *segmentation_resutls.pkl* file under the folder *out_pkl/CONFIG_NAME*.
+
+```python
+# Then, convert from pkl to json format
+
+
+# Finally, zip the json file and submit to test server
+zip -q segmentation_resutls.zip segmentation_resutls.json
+```
+
 ## Performance
 ### Single Model
 ### Model Ensemble
