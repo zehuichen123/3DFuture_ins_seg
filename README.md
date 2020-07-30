@@ -11,9 +11,15 @@ We follow the official mmdetection [installation](), and list our experiment env
 ## Prepare Dataset
 Download the dataset from official [challenge site](), and the put it under the folder *mmdet_furniture/data/*, 
 the dataset folder structure looks like this:
-'''python
-ffff
-'''
+```python
+|- mmdet_furniture
+# train
+mot17_data=['MOT17-02-FRCNN','MOT17-05-FRCNN','MOT17-09-FRCNN','MOT17-10-FRCNN','MOT17-13-FRCNN']
+mot15_data=['KITTI-17','ETH-Sunnyday','ETH-Bahnhof','PETS09-S2L1','TUD-Stadtmitte']
+
+# validation
+mot17_data_eval=['MOT17-11-FRCNN', 'MOT17-04-FRCNN']
+```
 
 ## Training & Evaluation
 
