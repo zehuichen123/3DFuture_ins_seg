@@ -9,7 +9,7 @@ We implements PointRend under the [mmdetection]() framework, note that the mmdet
 We follow the official mmdetection [installation](), and list our experiment environments in *requirements.txt*.
 
 ## Prepare Dataset
-Download the dataset from official [challenge site](), and the put it under the folder *mmdet_furniture/data/*, 
+Download the dataset from official [challenge site](), and then put it under the folder *mmdet_furniture/data/*, 
 the dataset folder structure in our experiments looks like this:
 ```python
 mmdet_furniture
@@ -25,8 +25,15 @@ mmdet_furniture
                  |-- test
 ```
 
-## Training & Evaluation
-
+## Train & Evaluation
+### Train
+To train a PointRend model on the 3DFuture dataset, run:
+```python
+# train with 8 gpus using one machine:
+./tools/dist_train.sh furniture_config/pointrend/pointrend_x101_64x4d_dcn_fpn_fp16_p2p6.py 8 
+# We also list another 4 config files under folder furniture_config/pointrend, which are used for this competition
+```
+### Evaluation
 ## Performance
 ### Single Model
 ### Model Ensemble
