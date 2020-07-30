@@ -1,8 +1,16 @@
 import mmcv
 import os.path as osp
+import argparse
 
 
-def pkl2json(root, config_name):
+def arg_parse():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--root', type=str, help='absolute path for project mmdet_furniture')
+    parser.add_argument('--config_name', type=str, help='config file name for PointRend model')
+    return parser
+
+def pkl2json(args):
+    root, config_name = args.root, args.config_name
     pklpath = osp.join(root, 'out_pkl', config_name, 'segmentation_resutls.pkl')
     pred_data = mmcv.load(pklpath)
     anno_path = osp.join(root, 'data/future/annotations', 'test_set.json')
@@ -48,4 +56,6 @@ def pkl2json(root, config_name):
 if __name__ == '__main__':
     root = '/mnt/truenas/scratch/lqf/code/github/3DFuture_ins_seg/mmdet_furniture/'  # absolute path for mmdet_furniture
     config_name = 'pointrend_x101_64x4d_dcn_fpn_fp16_p2p6'
-    pkl2json(root, config_name)
+    parser = arg_parse()
+    args = parser.parse_args()
+    pkl2json(args)
