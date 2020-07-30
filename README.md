@@ -73,11 +73,11 @@ We report PointRend performance under the test dataset with multi-scale train/te
 #### PointRend
 Backbone | FP16 | Mask AP | AP50 | AP75 | APs | APm | APl | config| pretrained |
 --------- | --------- | ---------- | ---------| ----------| ----------| ---------| -----------| -----------| -----------
-X101_64x4d|yes|77.38|89.34|83.28|45.31|	71.21|82.24|pointrend_x101_64x4d_dcn_fpn_fp16_p2p6|[link]()
-X101_64x4d|yes|77.32|89.79|83.24|45.78|	72.25|81.7|pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_lr001|[link]()
-X101_64x4d|yes|77.37|89.78|83.39|46.07|72.84|81.68|pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_enrichfeat|[link]()
+X101_64x4d|yes|**77.38**|89.34|83.28|45.31|	71.21|**82.24**|pointrend_x101_64x4d_dcn_fpn_fp16_p2p6|[link]()
+X101_64x4d|yes|77.32|**89.79**|83.24|45.78|	72.25|81.7|pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_lr001|[link]()
+X101_64x4d|yes|**77.37**|**89.78**|**83.39**|46.07|**72.84**|81.68|pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_enrichfeat|[link]()
 res2net101|yes|76.95|89.92|82.97|45.5|72.49|81.71|pointrend_res2net101_dcn_fpnbfp2repeat_p2p6_fp16_enrichfeat_largeboxalign|[link]()
-res2net101|yes|77.21|90.09|82.88|47.3|71.98|81.97|pointrend_res2net101_dcn_fpnbfp_fp16_p2p6_enrichfeat|[link]()
+res2net101|yes|77.21|90.09|82.88|**47.3**|71.98|81.97|pointrend_res2net101_dcn_fpnbfp_fp16_p2p6_enrichfeat|[link]()
 
 
 ### Model Ensemble
