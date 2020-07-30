@@ -31,7 +31,7 @@ To train a PointRend model on the 3DFuture dataset, run:
 ```python
 # train with 8 gpus using one machine:
 ./tools/dist_train.sh furniture_config/pointrend/pointrend_x101_64x4d_dcn_fpn_fp16_p2p6.py 8 
-# We also list another 4 config files under folder furniture_config/pointrend, which are used for this competition
+# We also list another 4 config files under folder *furniture_config/pointrend*, which are used for this competition
 ```
 ### Evaluation
 ## Performance
