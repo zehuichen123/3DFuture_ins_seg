@@ -54,7 +54,7 @@ Above scripts will generate a *segmentation_resutls.pkl* file under the folder *
 
 ```python
 # Then, convert from pkl to json format:
-python submit_test.py --root ROOT_PATH --config_name CONFIG_NAME  # ROOT_PATH: absolute file path for project mmdet_furniture 
+python tools/submit_test.py --root ROOT_PATH --config_name CONFIG_NAME  # ROOT_PATH: absolute file path for project mmdet_furniture 
 ```
 Above scripts will generate a *segmentation_resutls.json* under the folder *out_pkl/CONFIG_NAME*
 
