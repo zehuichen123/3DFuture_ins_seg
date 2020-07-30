@@ -2,10 +2,7 @@
 fp16 = dict(loss_scale=512.)
 model = dict(
     type='PointRendMaskRcnn',
-    pretrained=  'https://shanghuagao.oss-cn-beijing.aliyuncs.com/res2net/res2net101_v1b_26w_4s-0812c246.pth',
-    # pretrained='/mnt/truenas/scratch/czh/others/pretrain_models/res2net101_v1d_26w_4s_mmdetv2-f0a600f9.pth',
-    # pretrained='open-mmlab://res2net101_v1d_26w_4s',
-    # pretrained='/mnt/truenas/scratch/lqf/res2net101_v1b_26w_4s-0812c246.pth',
+    pretrained='open-mmlab://resnext101_64x4d',
     backbone=dict(
         type='Res2Net',
         depth=101,
@@ -20,11 +17,6 @@ model = dict(
         dcn=dict(type='DCN', deformable_groups=1, fallback_on_stride=False),
         stage_with_dcn=(False, True, True, True),
     ),
-    # neck=dict(
-    #     type='FPN',
-    #     in_channels=[256, 512, 1024, 2048],
-    #     out_channels=256,
-    #     num_outs=5),
     neck=[
         dict(
             type='FPN',
@@ -37,7 +29,7 @@ model = dict(
             num_levels=5,
             refine_level=2,
             refine_type='non_local_sequence',
-            nb_non_local=2)  # NOTE
+            nb_non_local=2)
     ],
     rpn_head=dict(
         type='RPNHead',
@@ -65,7 +57,7 @@ model = dict(
         num_classes=35,
         target_means=[0., 0., 0., 0.],
         target_stds=[0.1, 0.1, 0.2, 0.2],
-        reg_class_agnostic=True,  # NOTE changed from False to True
+        reg_class_agnostic=True,
         loss_cls=dict(
             type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0),
         loss_bbox=dict(type='SmoothL1Loss', beta=1.0, loss_weight=1.0)),
@@ -89,11 +81,11 @@ model = dict(
             mask_point_in_features=[0,1,2,3,4],
             mask_point_in_channels=[256,256,256,256,256],
             strides=[4,8,16,32,64],
-            train_num_points=24*24,  # NOTE 
+            train_num_points=24*24, 
             oversample_ratio=3,
             importance_sample_ratio=0.75,
             subdivision_steps=5,
-            subdivision_num_points=70*70,  # NOTE
+            subdivision_num_points=70*70,
             num_classes=35,
             fc_dim=512, 
             num_fc=5, 
@@ -158,14 +150,12 @@ test_cfg = dict(
         mask_thr_binary=0.5))
 # dataset settings
 dataset_type = 'FutureDataset'
-data_root = '/mnt/truenas/scratch/lqf/code/czh/data/future/'
+data_root = 'data/future/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
-    # dict(type='Resize', img_scale=(1000, 1000), keep_ratio=True),
-    # dict(type='Resize', img_scale=[(1200,800),(1200, 1200)], multiscale_mode='range', keep_ratio=True),
     dict(type='Resize', img_scale=[(1400,1200),(1400, 1400)], multiscale_mode='range', keep_ratio=True),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
@@ -177,9 +167,8 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=[(1200,1200), (1300,1300), (1400,1400)],  # default 1000
-        # img_scale=[(1400,1400)],  # default 1000
-        flip=False,
+        img_scale=[(1400,1400)],
+        flip=True,
         transforms=[
             dict(type='Resize', keep_ratio=True),
             dict(type='RandomFlip', flip_ratio=0.5), 
@@ -211,7 +200,6 @@ evaluation = dict(interval=1, metric=['bbox', 'segm'])
 # optimizer
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
-# optimizer_config = dict(grad_clip=None)  # NOTE
 # learning policy
 lr_config = dict(
     policy='step',
@@ -219,13 +207,6 @@ lr_config = dict(
     warmup_iters=1000,
     warmup_ratio=1.0 / 3,
     step=[32, 44])
-# lr_config = dict(
-#     policy='cosine',
-#     warmup='linear',
-#     warmup_iters=500,
-#     warmup_ratio=1.0 / 3,
-#     step=[300])
-
 checkpoint_config = dict(interval=2)
 # yapf:disable
 log_config = dict(
@@ -239,7 +220,7 @@ log_config = dict(
 total_epochs = 44
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = './work_dirs/whole/pointrend_res2net101_dcn_fpnbfp_large_coarsehead_fp16_larger_img_p2p6_1200_1400_enrichfeat_largeboxalign_whole'
+work_dir = './work_dirs/pointrend_res2net101_dcn_fpnbfp_large_coarsehead_fp16_larger_img_p2p6_1200_1400_enrichfeat_largeboxalign_whole'
 load_from = None
 resume_from = None
 workflow = [('train', 1)]
