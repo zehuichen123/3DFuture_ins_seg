@@ -69,4 +69,12 @@ We also provides five *segmentation_resutls.zip* files which we used as single m
 
 ## Performance
 ### Single Model
+We report PointRend performance under the test dataset with multi-scale train/test. All the models are trained using 8X 2080Ti.
+#### PointRend
+Backbone | FP16 | Mask AP | AP50 | AP75 | APs | APm | APl | config| pretrained_weights |
+--------- | --------- | ---------- | ---------| ----------| ----------| ---------| -----------| -----------| -----------
+X101_64x4d|yes|77.38|89.34|83.28|45.31|	71.21|82.24|pointrend_x101_64x4d_dcn_fpn_fp16_p2p6|[link]()
+
+
+
 ### Model Ensemble
