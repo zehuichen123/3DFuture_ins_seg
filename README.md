@@ -53,12 +53,19 @@ Then convert data from pkl to json format which is then zipped and used for subm
 Above scripts will generate a *segmentation_resutls.pkl* file under the folder *out_pkl/CONFIG_NAME*.
 
 ```python
-# Then, convert from pkl to json format
+# Then, convert from pkl to json format:
+python submit_test.py --root ROOT_PATH --config_name CONFIG_NAME  # ROOT_PATH: absolute file path for project mmdet_furniture 
+```
+Above scripts will generate a *segmentation_resutls.json* under the folder *out_pkl/CONFIG_NAME*
 
 
+```python
 # Finally, zip the json file and submit to test server
 zip -q segmentation_resutls.zip segmentation_resutls.json
 ```
+Above scripts will generate a *segmentation_resutls.zip* under the folder *out_pkl/CONFIG_NAME*, which can be used for submitting test server.
+
+We provides five *segmentation_resutls.zip* files which are used for submitting test server, download from [here]().
 
 ## Performance
 ### Single Model
