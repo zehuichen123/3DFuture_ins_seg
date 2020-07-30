@@ -65,7 +65,7 @@ zip -q segmentation_resutls.zip segmentation_resutls.json
 ```
 Above scripts will generate a *segmentation_resutls.zip* under the folder *out_pkl/CONFIG_NAME*, which can be used for submitting test server.
 
-We provides five *segmentation_resutls.zip* files which are used for submitting test server, download from [here]().
+We also provides five *segmentation_resutls.zip* files which we used as single model for submitting test server, download from [here]().
 
 ## Performance
 ### Single Model
