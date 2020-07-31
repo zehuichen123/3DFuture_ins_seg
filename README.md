@@ -36,7 +36,11 @@ source eval.sh
 
 The final submission file will be located at `code_furniture/segmentation_results.json.zip`
 
+
+** If you want to execute step by step, please follow the following steps ** 
+
 ## Installation
+
 We implements PointRend under mmdetection framework, note that the mmdetection version here we used is 1.1.0.
 We follow the official mmdetection [installation](https://github.com/open-mmlab/mmdetection/blob/master/docs/install.md), and list our experiment environments in *requirements.txt*.
 
