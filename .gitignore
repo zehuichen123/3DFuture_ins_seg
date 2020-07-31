@@ -1,1 +1,4 @@
 code_furniture/results/
+mmdet_furniture/work_dirs
+mmdet_furniture/infer_results
+mmdet_furniture/data

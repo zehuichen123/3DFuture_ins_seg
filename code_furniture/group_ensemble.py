@@ -7,17 +7,16 @@ import time
 import mmcv
 import numpy as np
 
-data_dir = 'results/'
+data_dir = 'infer_results/'
 anno_dir = 'data/future/annotations/test_set.json'
 ensemble_list = [
-    'pointrend_res2_fpnbfp.pkl',    # 77.21
-    'pointrend_x101_fpnbfp_lr001.pkl',  # 77.32
-    'pointrend_x101_fpn.pkl',   # 77.38
-    'pointrend_x101_fpnbfp_lr002_enrich.pkl',   # 77.37
-    'pointrend_x101_fpnbfp_lr001_enrich.pkl',   # 76.81
-    'pointrend_res2net_fpnbfp_largebbox.pkl'    # 76.95
+    'pointrend_res2net101_dcn_fpnbfp_fp16_p2p6_enrichfeat.pkl',    # 77.21
+    'pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_lr001.pkl',  # 77.32
+    'pointrend_x101_64x4d_dcn_fpn_fp16_p2p6.pkl',   # 77.38
+    'pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_enrichfeat.pkl',   # 77.37
+    'pointrend_res2net101_dcn_fpnbfp2repeat_p2p6_fp16_enrichfeat_largeboxalign.pkl'    # 76.95
 ]
-val_score_list = [77.21, 77.32, 77.38, 77.37, 76.81, 76.95]
+val_score_list = [77.21, 77.32, 77.38, 77.37, 76.95]
 num_ensemble = len(ensemble_list)
 model_type_list = []
 nms_type = 'soft_nms'
@@ -179,6 +178,7 @@ if __name__ == '__main__':
     tmp_res = parse_pred_2_json(new_dets, val_anno)
 
     mmcv.dump(tmp_res, 'segmentation_resutls.json')
+    print("[*] Saving Result in %g s" % (time.time() - checkpoint))
 
 
 
