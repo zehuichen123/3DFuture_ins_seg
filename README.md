@@ -48,8 +48,8 @@ To train a PointRend model on the 3DFuture dataset, run:
 # which are used for this competition. For instance, you can run one of the configs like this:
 ./tools/dist_train.sh furniture_config/pointrend/pointrend_x101_64x4d_dcn_fpn_fp16_p2p6.py 8 
 ```
-After training finished, the trained model and training log will be saved under the folder *work_dirs/CONFIG_NAME*
-We provide five pretrained PointRend models which can be used for test generation. Download the pretrained weights from [here](),
+After training finished, the trained model and training log will be saved under the folder *work_dirs/CONFIG_NAME.*
+We provide five pretrained PointRend models which can be used for test generation. Download the pretrained weights from [here](https://1drv.ms/u/s!AhNcLYzCx6CCjRTxYvDMYc4pKN_g?e=vI4XHs),
 and put it under folder *work_dirs*.
 
 ### Evaluation
