@@ -68,7 +68,7 @@ Above scripts will generate a *segmentation_resutls.pkl* file under the folder *
 # Then, convert from pkl to json format:
 python tools/submit_test.py --root ROOT_PATH --config_name CONFIG_NAME  # ROOT_PATH: absolute file path for project mmdet_furniture 
 # For example:
-python tools/submit_test.py --root /mnt/truenas/scratch/lqf/code/github/delete_test/3DFuture_ins_seg/mmdet_furniture/ --config_name pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_enrichfeat
+python tools/submit_test.py --root /mnt/truenas/scratch/lqf/code/github/delete_test/3DFuture_ins_seg/mmdet_furniture/ --config_name pointrend_x101_64x4d_dcn_fpn_fp16_p2p6
 ```
 Above scripts will generate a *segmentation_resutls.json* under the folder *out_results/CONFIG_NAME*
 
