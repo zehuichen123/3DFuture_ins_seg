@@ -4,6 +4,11 @@ This repository maintains our solution to [3D AI Challenge Instance Segmentation
 Our solution is a weighted ensemble of several [PointRend]() models. This repository implements PointRend and train/evaluates it on the [3DFuture dataset](), 
 based on the open projects [mmdetection]() and [detectron2 PointRend](). We also provide ensemble code on our trained PointRend models.
 
+
+## Environment Requirements
+
+CUDA 10.0, pytorch 1.4.0, torchvision 0.5.0
+
 ## Installation
 We implements PointRend under the [mmdetection]() framework, note that the mmdetection version here we used is 1.1.0.
 We follow the official mmdetection [installation](), and list our experiment environments in *requirements.txt*.

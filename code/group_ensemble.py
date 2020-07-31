@@ -8,7 +8,7 @@ import mmcv
 import numpy as np
 
 data_dir = 'results/'
-anno_dir = '/mnt/truenas/scratch/czh/data/future/annotations/test_set.json'
+anno_dir = 'data/future/annotations/test_set.json'
 ensemble_list = [
     'pointrend_res2_fpnbfp.pkl',    # 77.21
     'pointrend_x101_fpnbfp_lr001.pkl',  # 77.32
