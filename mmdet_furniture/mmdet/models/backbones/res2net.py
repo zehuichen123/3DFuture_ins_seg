@@ -59,11 +59,6 @@ class Bottle2neck(nn.Module):
         self.gen_attention = gen_attention
         self.with_gen_attention = gen_attention is not None
 
-        from mmcv.runner.dist_utils import get_dist_info
-        rank, _ = get_dist_info()
-        if rank==0:
-            print('self.with_dcn: +++++++++++++++++++++++++++++++++ ', self.with_dcn, self.with_gcb)
-
         if self.style == 'pytorch':
             self.conv1_stride = 1
             self.conv2_stride = stride

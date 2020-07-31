@@ -11,6 +11,7 @@ from mmdet.apis import multi_gpu_test, single_gpu_test
 from mmdet.core import wrap_fp16_model
 from mmdet.datasets import build_dataloader, build_dataset
 from mmdet.models import build_detector
+import os.path as osp
 
 
 class MultipleKVAction(argparse.Action):
@@ -153,10 +154,12 @@ def main():
             broadcast_buffers=False)
         outputs = multi_gpu_test(model, data_loader, args.tmpdir,
                                  args.gpu_collect)
-
     rank, _ = get_dist_info()
     if rank == 0:
         if args.out:
+            dir_path = '/'.join(args.out.split('.pkl')[0].split('/')[:-1])
+            if not osp.exists(dir_path):
+                os.makedirs(dir_path)
             print('\nwriting results to {}'.format(args.out))
             mmcv.dump(outputs, args.out)
         kwargs = {} if args.options is None else args.options

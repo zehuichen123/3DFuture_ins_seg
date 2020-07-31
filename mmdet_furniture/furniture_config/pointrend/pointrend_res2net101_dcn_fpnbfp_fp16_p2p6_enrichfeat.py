@@ -2,7 +2,7 @@
 fp16 = dict(loss_scale=512.)
 model = dict(
     type='PointRendMaskRcnn',
-    pretrained='open-mmlab://resnext101_64x4d',
+    pretrained=  'https://shanghuagao.oss-cn-beijing.aliyuncs.com/res2net/res2net101_v1b_26w_4s-0812c246.pth',
     backbone=dict(
         type='Res2Net',
         depth=101,
