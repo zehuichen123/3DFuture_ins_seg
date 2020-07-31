@@ -8,6 +8,13 @@ based on the open projects [mmdetection]() and [detectron2 PointRend](). We also
 We implements PointRend under the [mmdetection]() framework, note that the mmdetection version here we used is 1.1.0.
 We follow the official mmdetection [installation](), and list our experiment environments in *requirements.txt*.
 
+
+We adopt soft-NMS during ensemble phase and the code is borrowed from [SimpleDet](). So c++ op need to be installed:
+```bash
+cd code/cython_nms
+python setup.py install
+``` 
+
 ## Prepare Dataset
 Download the dataset from official [challenge site](), and then put it under the folder *mmdet_furniture/data/*, 
 the dataset folder structure in our experiments looks like this:
