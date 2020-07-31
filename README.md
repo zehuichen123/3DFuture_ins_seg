@@ -6,10 +6,10 @@ based on the open projects [mmdetection]() and [detectron2 PointRend](). We also
 
 ## Environment Requirements
 
-CUDA 10.0, pytorch 1.4.0, torchvision 0.5.0
+CUDA 10.0
 
 ## Installation
-We implements PointRend under the [mmdetection]() framework, note that the mmdetection version here we used is 1.1.0.
+We implements PointRend under mmdetection framework, note that the mmdetection version here we used is 1.1.0.
 We follow the official mmdetection [installation](), and list our experiment environments in *requirements.txt*.
 
 ## Prepare Dataset
@@ -29,13 +29,16 @@ mmdet_furniture
                  |-- test
 ```
 
-## Only two lines to get results
+## Simple Script to get results
 
 We provide script which allows you to get our final submission:
+
 ```bash
-export num_GPU = 8      # num of GPU you have
+export GPUS = 8         # the exact GPU number you have
 source eval.sh
 ```
+
+The final submission file will be located at `code_furniture/segmentation_results.json.zip`
 
 ## Train & Evaluation
 ### Train

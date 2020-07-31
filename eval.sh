@@ -26,23 +26,23 @@ mkdir infer_results         # path to save inference results(pkl)
 
  # infer 5 models
 ./tools/dist_test.sh furniture_config/pointrend/pointrend_res2net101_dcn_fpnbfp_fp16_p2p6_enrichfeat.py \
-    work_dirs/pointrend_res2net101_dcn_fpnbfp_fp16_p2p6_enrichfeat/epoch_44.pth 8 \
+    work_dirs/pointrend_res2net101_dcn_fpnbfp_fp16_p2p6_enrichfeat/epoch_44.pth $GPUS \
     --out infer_results/pointrend_res2net101_dcn_fpnbfp_fp16_p2p6_enrichfeat.pkl
 
 ./tools/dist_test.sh furniture_config/pointrend/pointrend_res2net101_dcn_fpnbfp2repeat_p2p6_fp16_enrichfeat_largeboxalign.py \
-    work_dirs/pointrend_res2net101_dcn_fpnbfp2repeat_p2p6_fp16_enrichfeat_largeboxalign/epoch_44.pth 8 \
+    work_dirs/pointrend_res2net101_dcn_fpnbfp2repeat_p2p6_fp16_enrichfeat_largeboxalign/epoch_44.pth $GPUS \
     --out infer_results/pointrend_res2net101_dcn_fpnbfp2repeat_p2p6_fp16_enrichfeat_largeboxalign.pkl
 
 ./tools/dist_test.sh furniture_config/pointrend/pointrend_x101_64x4d_dcn_fpn_fp16_p2p6.py \
-    work_dirs/pointrend_x101_64x4d_dcn_fpn_fp16_p2p6/epoch_44.pth 8 \
+    work_dirs/pointrend_x101_64x4d_dcn_fpn_fp16_p2p6/epoch_44.pth $GPUS \
     --out infer_results/pointrend_x101_64x4d_dcn_fpn_fp16_p2p6.pkl
 
 ./tools/dist_test.sh furniture_config/pointrend/pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_enrichfeat.py \
-    work_dirs/pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_enrichfeat/epoch_44.pth 8 \
+    work_dirs/pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_enrichfeat/epoch_44.pth $GPUS \
     --out infer_results/pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_enrichfeat.pkl
 
 ./tools/dist_test.sh furniture_config/pointrend/pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_lr001.py \
-    work_dirs/pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_lr001/epoch_44.pth 8 \
+    work_dirs/pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_lr001/epoch_44.pth $GPUS \
     --out infer_results/pointrend_x101_64x4d_dcn_fpnbfp_fp16_p2p6_lr001.pkl
 
 # ensemble results
