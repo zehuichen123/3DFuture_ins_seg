@@ -81,3 +81,11 @@ res2net101|yes|77.21|**90.09**|82.88|**47.3**|71.98|81.97|pointrend_res2net101_d
 
 
 ### Model Ensemble
+
+We adopted two different ways for model reweight. A detail description please refer to our report.
+
+Method   | Mask AP | AP50 | AP75 | APs | APm | APl |
+---------| ------- | -----| -----| ----| ----| ----|
+Linear-Reweight | 78.92 | 91.56 | 85.02 | 48.59 | 73.69 | 83.93 |
+Linear-interplot | **79.03** | 91.64 | 85.09 | 48.42 | 74.09 | 84.04|
+
