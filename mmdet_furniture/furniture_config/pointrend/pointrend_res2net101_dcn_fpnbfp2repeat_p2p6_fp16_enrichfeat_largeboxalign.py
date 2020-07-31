@@ -220,7 +220,7 @@ log_config = dict(
 total_epochs = 44
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = './work_dirs/pointrend_res2net101_dcn_fpnbfp_large_coarsehead_fp16_larger_img_p2p6_1200_1400_enrichfeat_largeboxalign_whole'
+work_dir = './work_dirs/pointrend_res2net101_dcn_fpnbfp2repeat_p2p6_fp16_enrichfeat_largeboxalign'
 load_from = None
 resume_from = None
 workflow = [('train', 1)]
