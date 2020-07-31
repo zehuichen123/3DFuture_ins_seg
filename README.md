@@ -4,15 +4,6 @@ This repository maintains our solution to [3D AI Challenge Instance Segmentation
 Our solution is a weighted ensemble of several [PointRend]() models. This repository implements PointRend and train/evaluates it on the [3DFuture dataset](), 
 based on the open projects [mmdetection]() and [detectron2 PointRend](). We also provide ensemble code on our trained PointRend models.
 
-## Only two lines to get results
-
-We provide script which allows you to get our final submission:
-```bash
-export num_GPU = 8      # num of GPU you have
-source eval.sh
-```
-
-
 ## Environment Requirements
 
 CUDA 10.0, pytorch 1.4.0, torchvision 0.5.0
@@ -20,12 +11,6 @@ CUDA 10.0, pytorch 1.4.0, torchvision 0.5.0
 ## Installation
 We implements PointRend under the [mmdetection]() framework, note that the mmdetection version here we used is 1.1.0.
 We follow the official mmdetection [installation](), and list our experiment environments in *requirements.txt*.
-
-We adopt soft-NMS during ensemble phase and the code is borrowed from [SimpleDet](). So c++ op need to be installed:
-```bash
-cd code/cython_nms
-python setup.py install
-``` 
 
 ## Prepare Dataset
 Download the dataset from official [challenge site](), and then put it under the folder *mmdet_furniture/data/*, 
@@ -42,6 +27,14 @@ mmdet_furniture
                  |-- train
                  |-- val
                  |-- test
+```
+
+## Only two lines to get results
+
+We provide script which allows you to get our final submission:
+```bash
+export num_GPU = 8      # num of GPU you have
+source eval.sh
 ```
 
 ## Train & Evaluation
@@ -100,6 +93,12 @@ res2net101|yes|77.21|**90.09**|82.88|**47.3**|71.98|81.97|pointrend_res2net101_d
 
 
 ### Model Ensemble
+
+Before you run ensemble code, you need to install Soft-NMS implementation borrowed from [SimpleDet].
+```bash
+cd code/cython_nms
+python setup.py install
+```
 
 We adopted two different ways for model reweight. A detail description please refer to our report.
 
