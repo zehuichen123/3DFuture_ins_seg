@@ -59,23 +59,23 @@ Then convert data from pkl to json format which is then zipped and used for subm
 
 ```python
 # Firstly, evaluate on test set and generate infer results with pkl format:
-./tools/dist_test.sh furniture_config/pointrend/CONFIG_NAME.py work_dirs/CONFIG_NAME/epoch44.pth 8 --out out_pkl/CONFIG_NAME/segmentation_resutls.pkl
+./tools/dist_test.sh furniture_config/pointrend/CONFIG_NAME.py work_dirs/CONFIG_NAME/epoch_44.pth 8 --out out_results/CONFIG_NAME/segmentation_resutls.pkl
 # Note we train PointRend for 44 epochs and defaultly pretrained weights of the last epoch are used for infer.
 ```
-Above scripts will generate a *segmentation_resutls.pkl* file under the folder *out_pkl/CONFIG_NAME*.
+Above scripts will generate a *segmentation_resutls.pkl* file under the folder *out_results/CONFIG_NAME*.
 
 ```python
 # Then, convert from pkl to json format:
 python tools/submit_test.py --root ROOT_PATH --config_name CONFIG_NAME  # ROOT_PATH: absolute file path for project mmdet_furniture 
 ```
-Above scripts will generate a *segmentation_resutls.json* under the folder *out_pkl/CONFIG_NAME*
+Above scripts will generate a *segmentation_resutls.json* under the folder *out_results/CONFIG_NAME*
 
 
 ```python
 # Finally, zip the json file and submit to test server
 zip -q segmentation_resutls.zip segmentation_resutls.json
 ```
-Above scripts will generate a *segmentation_resutls.zip* under the folder *out_pkl/CONFIG_NAME*, which can be used for submitting test server.
+Above scripts will generate a *segmentation_resutls.zip* under the folder *out_results/CONFIG_NAME*, which can be used for submitting test server.
 
 We also provides five *segmentation_resutls.zip* files which we used as single model for submitting test server, download from [here]().
 
