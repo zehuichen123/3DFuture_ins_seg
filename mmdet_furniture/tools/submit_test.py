@@ -11,7 +11,7 @@ def arg_parse():
 
 def pkl2json(args):
     root, config_name = args.root, args.config_name
-    pklpath = osp.join(root, 'out_pkl', config_name, 'segmentation_resutls.pkl')
+    pklpath = osp.join(root, 'out_results', config_name, 'segmentation_resutls.pkl')
     pred_data = mmcv.load(pklpath)
     anno_path = osp.join(root, 'data/future/annotations', 'test_set.json')
     test_anno = mmcv.load(anno_path)
@@ -49,7 +49,7 @@ def pkl2json(args):
     submit = {}
     submit['images'] = img_list
     submit['annotations'] = anno_list
-    save_path = osp.join(root, 'out_pkl', config_name, 'segmentation_resutls.json')
+    save_path = osp.join(root, 'out_results', config_name, 'segmentation_resutls.json')
     mmcv.dump(submit, save_path)
 
 
