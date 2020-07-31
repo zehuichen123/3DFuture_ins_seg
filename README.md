@@ -1,19 +1,15 @@
 # 1st Place Solutions of 3D AI Challenge 2020 - Instance Segmentation Track
 
-This repository maintains our solution to [3D AI Challenge Instance Segmentation Track](), which ranks 1st in both trackA (validation set)] and trackB (test set). 
-Our solution is a weighted ensemble of several [PointRend]() models. This repository implements PointRend and train/evaluates it on the [3DFuture dataset](), 
-based on the open projects [mmdetection]() and [detectron2 PointRend](). We also provide ensemble code on our trained PointRend models.
+This repository maintains our solution to [3D AI Challenge Instance Segmentation Track](https://tianchi.aliyun.com/competition/entrance/231787/introduction), which ranks 1st in both trackA (validation set)] and trackB (test set). 
+Our solution is a weighted ensemble of several [PointRend](https://openaccess.thecvf.com/content_CVPR_2020/html/Kirillov_PointRend_Image_Segmentation_As_Rendering_CVPR_2020_paper.html) models. This repository implements PointRend and train/evaluates it on the [3DFuture dataset](), 
+based on the open projects [mmdetection](https://github.com/open-mmlab/mmdetection/) and [detectron2 PointRend](https://github.com/facebookresearch/detectron2). We also provide ensemble code on our trained PointRend models.
 
 ## Environment Requirements
 
 CUDA 10.0
 
-## Installation
-We implements PointRend under mmdetection framework, note that the mmdetection version here we used is 1.1.0.
-We follow the official mmdetection [installation](), and list our experiment environments in *requirements.txt*.
-
 ## Prepare Dataset
-Download the dataset from official [challenge site](), and then put it under the folder *mmdet_furniture/data/*, 
+Download the dataset from official [challenge site](https://tianchi.aliyun.com/competition/entrance/231787/introduction), and then put it under the folder *mmdet_furniture/data/*, 
 the dataset folder structure in our experiments looks like this:
 ```python
 mmdet_furniture
@@ -31,14 +27,18 @@ mmdet_furniture
 
 ## Simple Script to get results
 
-We provide script which allows you to get our final submission:
+We provide script which allows you to get our final submission without installing any packages:
 
 ```bash
-export GPUS = 8         # the exact GPU number you have
+export GPUS=8         # the exact GPU number you have
 source eval.sh
 ```
 
 The final submission file will be located at `code_furniture/segmentation_results.json.zip`
+
+## Installation
+We implements PointRend under mmdetection framework, note that the mmdetection version here we used is 1.1.0.
+We follow the official mmdetection [installation](https://github.com/open-mmlab/mmdetection/blob/master/docs/install.md), and list our experiment environments in *requirements.txt*.
 
 ## Train & Evaluation
 ### Train
@@ -99,7 +99,7 @@ res2net101|yes|77.21|**90.09**|82.88|**47.3**|71.98|81.97|pointrend_res2net101_d
 
 ### Model Ensemble
 
-Before you run ensemble code, you need to install Soft-NMS implementation borrowed from [SimpleDet].
+Before you run ensemble code, you need to install Soft-NMS implementation borrowed from [SimpleDet](https://github.com/TuSimple/simpledet).
 ```bash
 cd code/cython_nms
 python setup.py install
