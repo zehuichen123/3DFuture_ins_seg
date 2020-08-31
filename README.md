@@ -86,8 +86,6 @@ zip -q segmentation_resutls.zip segmentation_resutls.json
 ```
 Above scripts will generate a *segmentation_resutls.zip* under the folder *out_results/CONFIG_NAME*, which can be used for submitting test server.
 
-We also provides five *segmentation_resutls.zip* files which we used as single model for submitting test server, download from [here]().
-
 ## Performance
 ### Single Model
 We report PointRend performance under the test dataset with multi-scale train/test. All the models are trained using 8X 2080Ti.
