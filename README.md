@@ -1,7 +1,7 @@
 # 1st Place Solutions of 3D AI Challenge 2020 - Instance Segmentation Track
 
 This repository maintains our solution to [3D AI Challenge Instance Segmentation Track](https://tianchi.aliyun.com/competition/entrance/231787/introduction), which ranks 1st in both trackA (validation set)] and trackB (test set). 
-Our solution is a weighted ensemble of several [PointRend](https://openaccess.thecvf.com/content_CVPR_2020/html/Kirillov_PointRend_Image_Segmentation_As_Rendering_CVPR_2020_paper.html) models. For more details please refer to our technical report:[Towards Fine-grained Large Object Segmentation
+Our solution is a weighted ensemble of several [PointRend](https://openaccess.thecvf.com/content_CVPR_2020/html/Kirillov_PointRend_Image_Segmentation_As_Rendering_CVPR_2020_paper.html) models. For more details please refer to our technical report:[Towards Fine-grained Large Object Segmentation:
 1st Place Solution to 3D AI Challenge 2020 - Instance Segmentation Track.](https://arxiv.org/pdf/2009.04650.pdf) This repository implements PointRend and train/evaluates it on the [3DFuture dataset](), 
 based on the open projects [mmdetection](https://github.com/open-mmlab/mmdetection/) and [detectron2 PointRend](https://github.com/facebookresearch/detectron2). We also provide ensemble code on our trained PointRend models.
 
